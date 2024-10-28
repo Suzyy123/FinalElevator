@@ -120,7 +120,7 @@
             liftDisplayDoing.BackColor = SystemColors.ActiveCaptionText;
             liftDisplayDoing.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             liftDisplayDoing.ForeColor = SystemColors.ButtonHighlight;
-            liftDisplayDoing.Location = new Point(20, 71);
+            liftDisplayDoing.Location = new Point(62, 89);
             liftDisplayDoing.Name = "liftDisplayDoing";
             liftDisplayDoing.Size = new Size(158, 32);
             liftDisplayDoing.TabIndex = 12;
