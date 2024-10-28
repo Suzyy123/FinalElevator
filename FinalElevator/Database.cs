@@ -90,27 +90,6 @@ namespace FinalElevator
             }
 
         }
-        public void ClearLogs()
-        {
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(connectionString))
-                {
-                    conn.Open();
-                    string query = "DELETE FROM Logs";
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
-                    {
-                        cmd.ExecuteNonQuery();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error clearing logs: " + ex.Message);
-            }
-        }
-
-
     }
 }
 

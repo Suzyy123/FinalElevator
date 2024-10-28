@@ -33,6 +33,10 @@ namespace LiftDemo_A
             Lifttimerdown = lifttimerdown;
             _CurrentState = new IdleState();
         }
+        //public bool HasReachedTargetFloor()
+        //{
+        //    return CurrentState == TargetFloor;
+        //}
 
         public void SetState(ILiftState state)
         {

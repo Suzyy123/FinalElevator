@@ -66,12 +66,12 @@
             // 
             // datagridviewlogs
             // 
-            datagridviewlogs.BackgroundColor = SystemColors.ButtonHighlight;
+            datagridviewlogs.BackgroundColor = SystemColors.ActiveCaptionText;
             datagridviewlogs.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             datagridviewlogs.Location = new Point(41, 216);
             datagridviewlogs.Name = "datagridviewlogs";
             datagridviewlogs.RowHeadersWidth = 72;
-            datagridviewlogs.Size = new Size(414, 529);
+            datagridviewlogs.Size = new Size(510, 529);
             datagridviewlogs.TabIndex = 0;
             datagridviewlogs.Click += Form1_Load;
             // 
@@ -89,7 +89,7 @@
             // 
             doorleft1.BackgroundImage = (Image)resources.GetObject("doorleft1.BackgroundImage");
             doorleft1.BackgroundImageLayout = ImageLayout.Stretch;
-            doorleft1.Location = new Point(797, 78);
+            doorleft1.Location = new Point(796, 47);
             doorleft1.Name = "doorleft1";
             doorleft1.Size = new Size(158, 387);
             doorleft1.TabIndex = 2;
@@ -118,13 +118,13 @@
             // 
             liftDisplayDoing.AutoSize = true;
             liftDisplayDoing.BackColor = SystemColors.ActiveCaptionText;
-            liftDisplayDoing.Font = new Font("Arial Black", 48F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            liftDisplayDoing.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             liftDisplayDoing.ForeColor = SystemColors.ButtonHighlight;
-            liftDisplayDoing.Location = new Point(46, 23);
+            liftDisplayDoing.Location = new Point(20, 71);
             liftDisplayDoing.Name = "liftDisplayDoing";
-            liftDisplayDoing.Size = new Size(141, 158);
+            liftDisplayDoing.Size = new Size(158, 32);
             liftDisplayDoing.TabIndex = 12;
-            liftDisplayDoing.Text = ">";
+            liftDisplayDoing.Text = "..................";
             // 
             // label1
             // 
@@ -180,7 +180,7 @@
             // 
             btn_G.BackgroundImage = (Image)resources.GetObject("btn_G.BackgroundImage");
             btn_G.BackgroundImageLayout = ImageLayout.Stretch;
-            btn_G.Location = new Point(59, 329);
+            btn_G.Location = new Point(74, 326);
             btn_G.Name = "btn_G";
             btn_G.Size = new Size(113, 106);
             btn_G.TabIndex = 5;
@@ -191,7 +191,7 @@
             // 
             btn_1.BackgroundImage = (Image)resources.GetObject("btn_1.BackgroundImage");
             btn_1.BackgroundImageLayout = ImageLayout.Stretch;
-            btn_1.Location = new Point(46, 198);
+            btn_1.Location = new Point(69, 197);
             btn_1.Name = "btn_1";
             btn_1.Size = new Size(128, 112);
             btn_1.TabIndex = 4;
@@ -202,7 +202,7 @@
             // 
             doorright1.BackgroundImage = (Image)resources.GetObject("doorright1.BackgroundImage");
             doorright1.BackgroundImageLayout = ImageLayout.Stretch;
-            doorright1.Location = new Point(953, 78);
+            doorright1.Location = new Point(952, 47);
             doorright1.Name = "doorright1";
             doorright1.Size = new Size(158, 387);
             doorright1.TabIndex = 4;
@@ -224,7 +224,7 @@
             // 
             doorright.BackgroundImage = (Image)resources.GetObject("doorright.BackgroundImage");
             doorright.BackgroundImageLayout = ImageLayout.Stretch;
-            doorright.Location = new Point(951, 589);
+            doorright.Location = new Point(953, 589);
             doorright.Name = "doorright";
             doorright.Size = new Size(158, 387);
             doorright.TabIndex = 6;
@@ -255,7 +255,7 @@
             // 
             // Exit
             // 
-            Exit.Location = new Point(293, 788);
+            Exit.Location = new Point(389, 788);
             Exit.Name = "Exit";
             Exit.Size = new Size(162, 86);
             Exit.TabIndex = 8;
@@ -266,7 +266,7 @@
             // btnColorDown
             // 
             btnColorDown.BackColor = SystemColors.ActiveCaptionText;
-            btnColorDown.Location = new Point(923, 42);
+            btnColorDown.Location = new Point(922, 11);
             btnColorDown.Name = "btnColorDown";
             btnColorDown.Size = new Size(59, 30);
             btnColorDown.TabIndex = 10;
@@ -285,7 +285,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Black", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(161, 142);
+            label2.Location = new Point(201, 142);
             label2.Name = "label2";
             label2.Size = new Size(179, 57);
             label2.TabIndex = 12;
@@ -294,7 +294,7 @@
             // btndown
             // 
             btndown.BackColor = SystemColors.ActiveCaptionText;
-            btndown.Location = new Point(1117, 765);
+            btndown.Location = new Point(1115, 778);
             btndown.Name = "btndown";
             btndown.Size = new Size(56, 40);
             btndown.TabIndex = 13;
@@ -304,18 +304,19 @@
             // btnUp
             // 
             btnUp.BackColor = SystemColors.ActiveCaptionText;
-            btnUp.Location = new Point(1117, 264);
+            btnUp.Location = new Point(1116, 201);
             btnUp.Name = "btnUp";
             btnUp.Size = new Size(56, 40);
             btnUp.TabIndex = 14;
             btnUp.Text = "button2";
             btnUp.UseVisualStyleBackColor = false;
+            btnUp.Click += btnUp_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(12F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1822, 1032);
+            ClientSize = new Size(1822, 964);
             Controls.Add(btnUp);
             Controls.Add(btndown);
             Controls.Add(label2);
