@@ -24,7 +24,7 @@ namespace FinalElevator
         int liftSpeed = 10;
         string alarmSoundPath = @"C:\Users\suzu\Downloads\mixkit-classic-alarm-995.wav";
         private Lift lift;
-        private int maxLiftHeight = 148;
+        private int maxLiftHeight = 100;
         DataTable dt = new DataTable();
         Database db = new Database();
         public Form1()
@@ -44,7 +44,6 @@ namespace FinalElevator
             db.loadLogsFromDB(dt, datagridviewlogs);
 
         }
-  
 
         private void logEvents(string message)
         {
@@ -75,9 +74,8 @@ namespace FinalElevator
                 isOpening = false;
                 isClosing = true;
                 doortimer.Start();
-                btnclose.Enabled = false;
+                btnopen.Enabled = false;
                 doortimer.Tick += onDoorClose;
-                logEvents("Lift going up!!!");
 
             }
             else
@@ -91,12 +89,14 @@ namespace FinalElevator
             if (!isOpening && !isClosing)
             {
                 MoveLiftUp();
-                doortimer.Tick -= onDoorClose;
+                doortimer.Tick += onDoorClose;
             }
-            //else
-            //{
-            //    MoveLiftUp();
-            //}
+            
+          
+         
+           
+
+        
 
         }
         private void MoveLiftUp()
@@ -105,10 +105,10 @@ namespace FinalElevator
             lift.Lifttimerup.Start();
             btn_G.Enabled = false;
 
-            //logEvents("Lift going up!!!");
+            logEvents("Lift going up!!!");
             btnColorUp.BackColor = Color.Black;
             btnColorDown.BackColor = Color.Green;
-            liftDisplayDoing.Text = "Coming in 1st floor";
+
 
         }
 
@@ -126,12 +126,15 @@ namespace FinalElevator
                 isOpening = false;
                 isClosing = true;
                 doortimer.Start();
-                btnclose.Enabled = false;
-                doortimer.Tick += onDoorClose;
+                btnopen.Enabled = false;
+                doortimer.Tick -= onDoorClose;
 
             }
             else
             {
+                isOpening = true;
+                isClosing = false;
+                doortimer.Start();
                 MoveLiftDown();
             }
 
@@ -153,25 +156,13 @@ namespace FinalElevator
             btnColorUp.BackColor = Color.Green;
             btnColorDown.BackColor = Color.Black;
             logEvents("Lift going down");
-            liftDisplayDoing.Text = "Coming in Ground floor";
-        }
-        public void btn_up_click(object sender, EventArgs e)
-        {
 
         }
-        public void btn_down_click(object sender, EventArgs e)
-        {
 
-        }
         public void liftTimerUp_Tick(object sender, EventArgs e)
         {
-            //mainElevator.Top -= liftSpeed;
-            //lift.Lifttimerup.Enabled = mainElevator.Top > maxLiftHeight;
-
             lift.MovingUp();
-            StopLiftAtTop();//new
-
-
+            StopAtTop();//new
 
         }
 
@@ -187,7 +178,8 @@ namespace FinalElevator
             isOpening = true;
             isClosing = false;
             doortimer.Start();
-            btnopen.Enabled = false;
+            btnclose.Enabled = false;
+            //btnopen.Enabled = true;
 
             logEvents("Lift Opening");
         }
@@ -231,11 +223,6 @@ namespace FinalElevator
             }
         }
 
-        //private void StopLiftAtTop()
-        //{
-
-        //}
-
         private void door_Timer_Tick(object sender, EventArgs e)
 
         {
@@ -251,7 +238,7 @@ namespace FinalElevator
                     else
                     {
                         doortimer.Stop();
-                        btnopen.Enabled = true;
+                        btnclose.Enabled = true;
                     }
                 }
 
@@ -275,7 +262,7 @@ namespace FinalElevator
 
                 if (isOpening)
                 {
-                    if (doorleft1.Left > doorMaxOpenWidth / 2 - 800 )
+                    if (doorleft1.Left > doorMaxOpenWidth / 2 - 800)
                     {
                         doorleft1.Left -= doorSpeed;
                         doorright1.Left += doorSpeed;
@@ -283,7 +270,7 @@ namespace FinalElevator
                     else
                     {
                         doortimer.Stop();
-                        btnopen.Enabled = true;
+                        btnclose.Enabled = true;
                     }
                 }
 
@@ -302,12 +289,12 @@ namespace FinalElevator
                 }
             }
         }
-        private void StopLiftAtTop()//new
+        private void StopAtTop()//new
         {
             isOpening = true;
             isClosing = false;
             doortimer.Start();
-            btnopen.Enabled = false;
+            btnclose.Enabled = false;
             lift.MovingUp();
             if (isClosing)
             {
@@ -317,15 +304,57 @@ namespace FinalElevator
 
 
             }
-
+        
 
         }
 
         private void btnUp_Click(object sender, EventArgs e)
         {
-            lift.MovingUp();
+            //StopAtTop();
+            if (mainElevator.Top == 0)
+            {
+                isClosing = false;
+                isOpening = true;
+                doortimer.Start();
+               
+            }
+            else
+            {
+                doortimer.Start();
+                MoveLiftUp();
+
+
+
+            }
         }
 
-       
+
+        private void btndown_Click(object sender, EventArgs e)
+        {
+            //StopAtTop();
+            if (mainElevator.Top != 0)
+            {
+                isClosing = false;
+                isOpening = true;
+                doortimer.Start();
+          
+          
+            }
+            else
+            {
+                isOpening = true;
+                isClosing = false;
+                doortimer.Start();
+                MoveLiftDown();
+            
+
+
+
+            }
+          
+
+        }
+
+
     }
 }

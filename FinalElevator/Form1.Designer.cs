@@ -34,9 +34,10 @@
             mainElevator = new PictureBox();
             doorleft1 = new PictureBox();
             panel1 = new Panel();
-            liftDisplayDoing = new Label();
-            label1 = new Label();
-            labelDisplay = new Label();
+            label4 = new Label();
+            label3 = new Label();
+            Open = new Label();
+            display = new PictureBox();
             emergency = new Button();
             btnopen = new Button();
             btnclose = new Button();
@@ -57,10 +58,12 @@
             btnUp = new Button();
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)datagridviewlogs).BeginInit();
             ((System.ComponentModel.ISupportInitialize)mainElevator).BeginInit();
             ((System.ComponentModel.ISupportInitialize)doorleft1).BeginInit();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)display).BeginInit();
             ((System.ComponentModel.ISupportInitialize)doorright1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)doorleft).BeginInit();
             ((System.ComponentModel.ISupportInitialize)doorright).BeginInit();
@@ -105,9 +108,10 @@
             panel1.BackColor = SystemColors.ActiveCaption;
             panel1.BackgroundImage = (Image)resources.GetObject("panel1.BackgroundImage");
             panel1.BackgroundImageLayout = ImageLayout.Stretch;
-            panel1.Controls.Add(liftDisplayDoing);
-            panel1.Controls.Add(label1);
-            panel1.Controls.Add(labelDisplay);
+            panel1.Controls.Add(label4);
+            panel1.Controls.Add(label3);
+            panel1.Controls.Add(Open);
+            panel1.Controls.Add(display);
             panel1.Controls.Add(emergency);
             panel1.Controls.Add(btnopen);
             panel1.Controls.Add(btnclose);
@@ -118,40 +122,50 @@
             panel1.Size = new Size(265, 702);
             panel1.TabIndex = 3;
             // 
-            // liftDisplayDoing
+            // label4
             // 
-            liftDisplayDoing.AutoSize = true;
-            liftDisplayDoing.BackColor = SystemColors.ActiveCaptionText;
-            liftDisplayDoing.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            liftDisplayDoing.ForeColor = SystemColors.ButtonHighlight;
-            liftDisplayDoing.Location = new Point(62, 89);
-            liftDisplayDoing.Name = "liftDisplayDoing";
-            liftDisplayDoing.Size = new Size(158, 32);
-            liftDisplayDoing.TabIndex = 12;
-            liftDisplayDoing.Text = "..................";
+            label4.AutoSize = true;
+            label4.BackColor = SystemColors.AppWorkspace;
+            label4.Location = new Point(92, 667);
+            label4.Name = "label4";
+            label4.Size = new Size(68, 30);
+            label4.TabIndex = 18;
+            label4.Text = "Alarm";
             // 
-            // label1
+            // label3
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Black", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(123, 64);
-            label1.Name = "label1";
-            label1.Size = new Size(0, 57);
-            label1.TabIndex = 12;
+            label3.AutoSize = true;
+            label3.BackColor = SystemColors.AppWorkspace;
+            label3.Location = new Point(147, 546);
+            label3.Name = "label3";
+            label3.Size = new Size(63, 30);
+            label3.TabIndex = 18;
+            label3.Text = "Close";
             // 
-            // labelDisplay
+            // Open
             // 
-            labelDisplay.AutoSize = true;
-            labelDisplay.Location = new Point(117, 73);
-            labelDisplay.Name = "labelDisplay";
-            labelDisplay.Size = new Size(0, 30);
-            labelDisplay.TabIndex = 12;
+            Open.AutoSize = true;
+            Open.BackColor = SystemColors.AppWorkspace;
+            Open.Location = new Point(40, 546);
+            Open.Name = "Open";
+            Open.Size = new Size(64, 30);
+            Open.TabIndex = 18;
+            Open.Text = "Open";
+            // 
+            // display
+            // 
+            display.BackColor = SystemColors.ActiveCaptionText;
+            display.Location = new Point(45, 43);
+            display.Name = "display";
+            display.Size = new Size(175, 131);
+            display.TabIndex = 17;
+            display.TabStop = false;
             // 
             // emergency
             // 
             emergency.BackgroundImage = (Image)resources.GetObject("emergency.BackgroundImage");
             emergency.BackgroundImageLayout = ImageLayout.Stretch;
-            emergency.Location = new Point(90, 560);
+            emergency.Location = new Point(92, 595);
             emergency.Name = "emergency";
             emergency.Size = new Size(73, 66);
             emergency.TabIndex = 9;
@@ -184,7 +198,7 @@
             // 
             btn_G.BackgroundImage = (Image)resources.GetObject("btn_G.BackgroundImage");
             btn_G.BackgroundImageLayout = ImageLayout.Stretch;
-            btn_G.Location = new Point(74, 326);
+            btn_G.Location = new Point(69, 331);
             btn_G.Name = "btn_G";
             btn_G.Size = new Size(113, 106);
             btn_G.TabIndex = 5;
@@ -197,7 +211,7 @@
             btn_1.BackgroundImageLayout = ImageLayout.None;
             btn_1.Location = new Point(69, 197);
             btn_1.Name = "btn_1";
-            btn_1.Size = new Size(128, 112);
+            btn_1.Size = new Size(113, 112);
             btn_1.TabIndex = 4;
             btn_1.UseVisualStyleBackColor = true;
             btn_1.Click += btn_1_click;
@@ -249,7 +263,7 @@
             // 
             // ClearLogs
             // 
-            ClearLogs.Location = new Point(894, 209);
+            ClearLogs.Location = new Point(867, 860);
             ClearLogs.Name = "ClearLogs";
             ClearLogs.Size = new Size(162, 86);
             ClearLogs.TabIndex = 7;
@@ -259,7 +273,7 @@
             // 
             // Exit
             // 
-            Exit.Location = new Point(1192, 209);
+            Exit.Location = new Point(1215, 869);
             Exit.Name = "Exit";
             Exit.Size = new Size(162, 86);
             Exit.TabIndex = 8;
@@ -270,7 +284,7 @@
             // btnColorDown
             // 
             btnColorDown.BackColor = SystemColors.ActiveCaptionText;
-            btnColorDown.Location = new Point(365, 78);
+            btnColorDown.Location = new Point(365, 85);
             btnColorDown.Name = "btnColorDown";
             btnColorDown.Size = new Size(59, 30);
             btnColorDown.TabIndex = 10;
@@ -289,7 +303,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Black", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(1007, 857);
+            label2.Location = new Point(1040, 244);
             label2.Name = "label2";
             label2.Size = new Size(179, 57);
             label2.TabIndex = 12;
@@ -304,6 +318,7 @@
             btndown.TabIndex = 13;
             btndown.Text = "button1";
             btndown.UseVisualStyleBackColor = false;
+            btndown.Click += btndown_Click;
             // 
             // btnUp
             // 
@@ -336,11 +351,22 @@
             pictureBox2.TabIndex = 16;
             pictureBox2.TabStop = false;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI Black", 15.8571434F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(943, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(312, 50);
+            label1.TabIndex = 17;
+            label1.Text = "Elevator System";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(12F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1822, 967);
+            Controls.Add(label1);
             Controls.Add(btndown);
             Controls.Add(label2);
             Controls.Add(btnColorUp);
@@ -364,6 +390,7 @@
             ((System.ComponentModel.ISupportInitialize)doorleft1).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)display).EndInit();
             ((System.ComponentModel.ISupportInitialize)doorright1).EndInit();
             ((System.ComponentModel.ISupportInitialize)doorleft).EndInit();
             ((System.ComponentModel.ISupportInitialize)doorright).EndInit();
@@ -394,13 +421,15 @@
         private Button emergency;
         private Button btnColorDown;
         private Button btnColorUp;
-        private Label labelDisplay;
-        private Label label1;
-        private Label liftDisplayDoing;
         private Label label2;
         private Button btndown;
         private Button btnUp;
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
+        private PictureBox display;
+        private Label label1;
+        private Label label4;
+        private Label label3;
+        private Label Open;
     }
 }
