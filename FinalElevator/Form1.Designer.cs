@@ -34,12 +34,11 @@
             mainElevator = new PictureBox();
             doorleft1 = new PictureBox();
             panel1 = new Panel();
-            label4 = new Label();
-            label3 = new Label();
-            Open = new Label();
-            display = new PictureBox();
+            pic2 = new PictureBox();
+            pic3 = new PictureBox();
             emergency = new Button();
             btnopen = new Button();
+            pic1 = new PictureBox();
             btnclose = new Button();
             btn_G = new Button();
             btn_1 = new Button();
@@ -59,11 +58,14 @@
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
             label1 = new Label();
+            DoorClosetimer = new System.Windows.Forms.Timer(components);
             ((System.ComponentModel.ISupportInitialize)datagridviewlogs).BeginInit();
             ((System.ComponentModel.ISupportInitialize)mainElevator).BeginInit();
             ((System.ComponentModel.ISupportInitialize)doorleft1).BeginInit();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)display).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pic2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pic3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pic1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)doorright1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)doorleft).BeginInit();
             ((System.ComponentModel.ISupportInitialize)doorright).BeginInit();
@@ -73,12 +75,14 @@
             // 
             // datagridviewlogs
             // 
+            datagridviewlogs.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            datagridviewlogs.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             datagridviewlogs.BackgroundColor = SystemColors.ButtonHighlight;
             datagridviewlogs.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            datagridviewlogs.Location = new Point(867, 325);
+            datagridviewlogs.Location = new Point(1240, 175);
             datagridviewlogs.Name = "datagridviewlogs";
             datagridviewlogs.RowHeadersWidth = 72;
-            datagridviewlogs.Size = new Size(510, 529);
+            datagridviewlogs.Size = new Size(807, 529);
             datagridviewlogs.TabIndex = 0;
             datagridviewlogs.Click += Form1_Load;
             // 
@@ -108,64 +112,46 @@
             panel1.BackColor = SystemColors.ActiveCaption;
             panel1.BackgroundImage = (Image)resources.GetObject("panel1.BackgroundImage");
             panel1.BackgroundImageLayout = ImageLayout.Stretch;
-            panel1.Controls.Add(label4);
-            panel1.Controls.Add(label3);
-            panel1.Controls.Add(Open);
-            panel1.Controls.Add(display);
+            panel1.Controls.Add(pic2);
+            panel1.Controls.Add(pic3);
             panel1.Controls.Add(emergency);
             panel1.Controls.Add(btnopen);
+            panel1.Controls.Add(pic1);
             panel1.Controls.Add(btnclose);
             panel1.Controls.Add(btn_G);
             panel1.Controls.Add(btn_1);
-            panel1.Location = new Point(1460, 78);
+            panel1.Location = new Point(881, 85);
             panel1.Name = "panel1";
-            panel1.Size = new Size(265, 702);
+            panel1.Size = new Size(258, 825);
             panel1.TabIndex = 3;
             // 
-            // label4
+            // pic2
             // 
-            label4.AutoSize = true;
-            label4.BackColor = SystemColors.AppWorkspace;
-            label4.Location = new Point(92, 667);
-            label4.Name = "label4";
-            label4.Size = new Size(68, 30);
-            label4.TabIndex = 18;
-            label4.Text = "Alarm";
+            pic2.BackColor = SystemColors.ActiveCaptionText;
+            pic2.BackgroundImage = (Image)resources.GetObject("pic2.BackgroundImage");
+            pic2.BackgroundImageLayout = ImageLayout.Stretch;
+            pic2.Location = new Point(40, 32);
+            pic2.Name = "pic2";
+            pic2.Size = new Size(182, 181);
+            pic2.TabIndex = 18;
+            pic2.TabStop = false;
             // 
-            // label3
+            // pic3
             // 
-            label3.AutoSize = true;
-            label3.BackColor = SystemColors.AppWorkspace;
-            label3.Location = new Point(147, 546);
-            label3.Name = "label3";
-            label3.Size = new Size(63, 30);
-            label3.TabIndex = 18;
-            label3.Text = "Close";
-            // 
-            // Open
-            // 
-            Open.AutoSize = true;
-            Open.BackColor = SystemColors.AppWorkspace;
-            Open.Location = new Point(40, 546);
-            Open.Name = "Open";
-            Open.Size = new Size(64, 30);
-            Open.TabIndex = 18;
-            Open.Text = "Open";
-            // 
-            // display
-            // 
-            display.BackColor = SystemColors.ActiveCaptionText;
-            display.Location = new Point(45, 43);
-            display.Name = "display";
-            display.Size = new Size(175, 131);
-            display.TabIndex = 17;
-            display.TabStop = false;
+            pic3.BackColor = SystemColors.ActiveCaptionText;
+            pic3.BackgroundImage = (Image)resources.GetObject("pic3.BackgroundImage");
+            pic3.BackgroundImageLayout = ImageLayout.Stretch;
+            pic3.Location = new Point(40, 32);
+            pic3.Name = "pic3";
+            pic3.Size = new Size(182, 181);
+            pic3.TabIndex = 19;
+            pic3.TabStop = false;
             // 
             // emergency
             // 
             emergency.BackgroundImage = (Image)resources.GetObject("emergency.BackgroundImage");
             emergency.BackgroundImageLayout = ImageLayout.Stretch;
-            emergency.Location = new Point(92, 595);
+            emergency.Location = new Point(92, 710);
             emergency.Name = "emergency";
             emergency.Size = new Size(73, 66);
             emergency.TabIndex = 9;
@@ -176,18 +162,27 @@
             // 
             btnopen.BackgroundImage = (Image)resources.GetObject("btnopen.BackgroundImage");
             btnopen.BackgroundImageLayout = ImageLayout.Stretch;
-            btnopen.Location = new Point(34, 461);
+            btnopen.Location = new Point(21, 579);
             btnopen.Name = "btnopen";
             btnopen.Size = new Size(83, 78);
             btnopen.TabIndex = 7;
             btnopen.UseVisualStyleBackColor = true;
             btnopen.Click += btn_Open_Click;
             // 
+            // pic1
+            // 
+            pic1.BackColor = SystemColors.ActiveCaptionText;
+            pic1.Location = new Point(3, 0);
+            pic1.Name = "pic1";
+            pic1.Size = new Size(255, 249);
+            pic1.TabIndex = 17;
+            pic1.TabStop = false;
+            // 
             // btnclose
             // 
             btnclose.BackgroundImage = (Image)resources.GetObject("btnclose.BackgroundImage");
             btnclose.BackgroundImageLayout = ImageLayout.Stretch;
-            btnclose.Location = new Point(137, 461);
+            btnclose.Location = new Point(147, 579);
             btnclose.Name = "btnclose";
             btnclose.Size = new Size(83, 78);
             btnclose.TabIndex = 6;
@@ -198,7 +193,7 @@
             // 
             btn_G.BackgroundImage = (Image)resources.GetObject("btn_G.BackgroundImage");
             btn_G.BackgroundImageLayout = ImageLayout.Stretch;
-            btn_G.Location = new Point(69, 331);
+            btn_G.Location = new Point(80, 410);
             btn_G.Name = "btn_G";
             btn_G.Size = new Size(113, 106);
             btn_G.TabIndex = 5;
@@ -208,8 +203,8 @@
             // btn_1
             // 
             btn_1.BackgroundImage = (Image)resources.GetObject("btn_1.BackgroundImage");
-            btn_1.BackgroundImageLayout = ImageLayout.None;
-            btn_1.Location = new Point(69, 197);
+            btn_1.BackgroundImageLayout = ImageLayout.Stretch;
+            btn_1.Location = new Point(80, 288);
             btn_1.Name = "btn_1";
             btn_1.Size = new Size(113, 112);
             btn_1.TabIndex = 4;
@@ -263,7 +258,7 @@
             // 
             // ClearLogs
             // 
-            ClearLogs.Location = new Point(867, 860);
+            ClearLogs.Location = new Point(1240, 722);
             ClearLogs.Name = "ClearLogs";
             ClearLogs.Size = new Size(162, 86);
             ClearLogs.TabIndex = 7;
@@ -273,7 +268,7 @@
             // 
             // Exit
             // 
-            Exit.Location = new Point(1215, 869);
+            Exit.Location = new Point(1858, 722);
             Exit.Name = "Exit";
             Exit.Size = new Size(162, 86);
             Exit.TabIndex = 8;
@@ -303,7 +298,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Black", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(1040, 244);
+            label2.Location = new Point(1601, 85);
             label2.Name = "label2";
             label2.Size = new Size(179, 57);
             label2.TabIndex = 12;
@@ -312,22 +307,24 @@
             // btndown
             // 
             btndown.BackColor = SystemColors.ActiveCaptionText;
-            btndown.Location = new Point(621, 740);
+            btndown.BackgroundImage = (Image)resources.GetObject("btndown.BackgroundImage");
+            btndown.BackgroundImageLayout = ImageLayout.Stretch;
+            btndown.Location = new Point(621, 722);
             btndown.Name = "btndown";
-            btndown.Size = new Size(56, 40);
+            btndown.Size = new Size(56, 58);
             btndown.TabIndex = 13;
-            btndown.Text = "button1";
             btndown.UseVisualStyleBackColor = false;
             btndown.Click += btndown_Click;
             // 
             // btnUp
             // 
             btnUp.BackColor = SystemColors.ActiveCaptionText;
-            btnUp.Location = new Point(621, 232);
+            btnUp.BackgroundImage = (Image)resources.GetObject("btnUp.BackgroundImage");
+            btnUp.BackgroundImageLayout = ImageLayout.Stretch;
+            btnUp.Location = new Point(621, 218);
             btnUp.Name = "btnUp";
-            btnUp.Size = new Size(56, 40);
+            btnUp.Size = new Size(56, 54);
             btnUp.TabIndex = 14;
-            btnUp.Text = "button2";
             btnUp.UseVisualStyleBackColor = false;
             btnUp.Click += btnUp_Click;
             // 
@@ -355,17 +352,22 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Black", 15.8571434F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(943, 0);
+            label1.Location = new Point(867, 0);
             label1.Name = "label1";
             label1.Size = new Size(312, 50);
             label1.TabIndex = 17;
             label1.Text = "Elevator System";
             // 
+            // DoorClosetimer
+            // 
+            DoorClosetimer.Interval = 5000;
+            DoorClosetimer.Tick += DoorClosetimer_Tick;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(12F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1822, 967);
+            ClientSize = new Size(2191, 967);
             Controls.Add(label1);
             Controls.Add(btndown);
             Controls.Add(label2);
@@ -389,8 +391,9 @@
             ((System.ComponentModel.ISupportInitialize)mainElevator).EndInit();
             ((System.ComponentModel.ISupportInitialize)doorleft1).EndInit();
             panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)display).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pic2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pic3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pic1).EndInit();
             ((System.ComponentModel.ISupportInitialize)doorright1).EndInit();
             ((System.ComponentModel.ISupportInitialize)doorleft).EndInit();
             ((System.ComponentModel.ISupportInitialize)doorright).EndInit();
@@ -426,10 +429,10 @@
         private Button btnUp;
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
-        private PictureBox display;
+        private PictureBox pic1;
         private Label label1;
-        private Label label4;
-        private Label label3;
-        private Label Open;
+        private PictureBox pic2;
+        private PictureBox pic3;
+        private System.Windows.Forms.Timer DoorClosetimer;
     }
 }

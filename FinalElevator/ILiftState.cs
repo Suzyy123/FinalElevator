@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace LiftDemo_A
 {
+    //encapsulation
     internal interface ILiftState
     {
         void MovingUp(Lift lift);

@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace LiftDemo_A
 {
-    internal class IdleState : ILiftState
+    internal class IdleState : ILiftState//represents the state when lift is not idle not moving
     {
-        public void MovingDown(Lift lift)
+        public void MovingDown(Lift lift)//rest mode
         {
-            /* Do Nothing */
+           //does nothing
         }
 
         public void MovingUp(Lift lift)
         {
-            /* Do Nothing */
+            //does nothing
         }
     }
 }
